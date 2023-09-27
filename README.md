@@ -10,3 +10,5 @@
 </p>
 
 <p align="center" style="display: flex">A simple extension that adds buttons to the status bar to expand or collapse Javascript functions.</p>
+
+<img width="139" alt="Captura de Tela 2023-09-27 às 13 18 53" src="https://github.com/robianchini/function-toogle/assets/35143346/6a6f2372-e743-46de-a729-4ddaec77f399">
