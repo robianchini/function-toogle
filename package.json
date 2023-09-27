@@ -1,8 +1,9 @@
 {
   "name": "function-toogle",
-  "displayName": "function-toogle",
-  "description": "",
-  "version": "0.0.1",
+  "displayName": "Function Toogle",
+  "description": "A simple extension to collaps/expand JS functions",
+  "publisher": "RodrigoBianchini",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.82.0"
   },
@@ -52,5 +53,9 @@
     "color": "#111e3a",
     "theme": "dark"
   },
-  "pricing": "Free"
+  "pricing": "Free",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robianchini/function-toogle.git"
+  }
 }

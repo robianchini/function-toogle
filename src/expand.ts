@@ -28,10 +28,6 @@ export const expand = () => {
         editor.selection = new vscode.Selection(startPos, startPos); // Seleciona a função
         vscode.commands.executeCommand('editor.unfold'); // Executa o comando de colapso (minimize)
       });
-
-      vscode.window.showInformationMessage(
-        'Todas as Arrow Functions foram colapsadas.'
-      );
     }
   }
 };
