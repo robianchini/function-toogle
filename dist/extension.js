@@ -1,1 +1,139 @@
-(()=>{"use strict";var n={477:(n,o,t)=>{Object.defineProperty(o,"__esModule",{value:!0}),o.collapse=void 0;const e=t(496);o.collapse=()=>{const n=e.window.activeTextEditor;if(n){const o=n.document,t=/\basync\s+\w+\s*\([^]*?\)|\bfunction\s+\w+\s*\([^]*?\)|const\s+\w+\s*=\s*(?:async\s+)?\([^]*?\)/g,s=o.getText(),i=s.match(t);i&&(i.forEach((t=>{const i=o.positionAt(s.indexOf(t)),a=o.positionAt(s.indexOf(t)+t.length);new e.Range(i,a),n.selection=new e.Selection(i,i),e.commands.executeCommand("editor.fold")})),e.window.showInformationMessage("Todas as Arrow Functions foram colapsadas."))}}},335:(n,o,t)=>{Object.defineProperty(o,"__esModule",{value:!0}),o.expand=void 0;const e=t(496);o.expand=()=>{const n=e.window.activeTextEditor;if(n){const o=n.document,t=/\basync\s+\w+\s*\([^]*?\)|\bfunction\s+\w+\s*\([^]*?\)|const\s+\w+\s*=\s*(?:async\s+)?\([^]*?\)/g,s=o.getText(),i=s.match(t);i&&(i.forEach((t=>{const i=o.positionAt(s.indexOf(t)),a=o.positionAt(s.indexOf(t)+t.length);new e.Range(i,a),n.selection=new e.Selection(i,i),e.commands.executeCommand("editor.unfold")})),e.window.showInformationMessage("Todas as Arrow Functions foram colapsadas."))}}},496:n=>{n.exports=require("vscode")}},o={};function t(e){var s=o[e];if(void 0!==s)return s.exports;var i=o[e]={exports:{}};return n[e](i,i.exports,t),i.exports}var e={};(()=>{var n=e;Object.defineProperty(n,"__esModule",{value:!0}),n.activate=void 0;const o=t(496),s=t(477),i=t(335);n.activate=function(n){const t=o.window.createStatusBarItem(o.StatusBarAlignment.Left,1);t.text="Fx$(chevron-down)",t.command="minifyFunction.expand",t.tooltip="Expand all functions",t.show();const e=o.window.createStatusBarItem(o.StatusBarAlignment.Left,0);e.text="Fx$(chevron-up)",e.command="minifyFunction.minify",e.tooltip="Collapse all functions",e.show(),n.subscriptions.push(o.commands.registerCommand("minifyFunction.expand",i.expand)),n.subscriptions.push(o.commands.registerCommand("minifyFunction.minify",s.collapse))}})(),module.exports=e})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
+/***/ ((module) => {
+
+module.exports = require("vscode");
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.collapse = void 0;
+const vscode = __webpack_require__(1);
+const collapse = () => {
+    // Obtenha o documento de texto ativo
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+        const document = editor.document;
+        // Regex para encontrar Arrow Functions
+        const arrowFunctionRegex = /\basync\s+\w+\s*\([^]*?\)|\bfunction\s+\w+\s*\([^]*?\)|const\s+\w+\s*=\s*(?:async\s+)?\([^]*?\)/g;
+        // Obtém todo o texto do documento
+        const fullText = document.getText();
+        // Encontra todas as Arrow Functions usando regex
+        const matches = fullText.match(arrowFunctionRegex);
+        if (matches) {
+            // Itera sobre as correspondências e colapsa (minimiza) cada uma delas
+            matches.forEach((match) => {
+                const startPos = document.positionAt(fullText.indexOf(match));
+                const endPos = document.positionAt(fullText.indexOf(match) + match.length);
+                const range = new vscode.Range(startPos, endPos);
+                editor.selection = new vscode.Selection(startPos, startPos); // Seleciona a função
+                vscode.commands.executeCommand('editor.fold'); // Executa o comando de colapso (minimize)
+            });
+            vscode.window.showInformationMessage('Todas as Arrow Functions foram colapsadas.');
+        }
+    }
+};
+exports.collapse = collapse;
+
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.expand = void 0;
+const vscode = __webpack_require__(1);
+const expand = () => {
+    // Obtenha o documento de texto ativo
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+        const document = editor.document;
+        // Regex para encontrar Arrow Functions
+        const arrowFunctionRegex = /\basync\s+\w+\s*\([^]*?\)|\bfunction\s+\w+\s*\([^]*?\)|const\s+\w+\s*=\s*(?:async\s+)?\([^]*?\)/g;
+        // Obtém todo o texto do documento
+        const fullText = document.getText();
+        // Encontra todas as Arrow Functions usando regex
+        const matches = fullText.match(arrowFunctionRegex);
+        if (matches) {
+            // Itera sobre as correspondências e colapsa (minimiza) cada uma delas
+            matches.forEach((match) => {
+                const startPos = document.positionAt(fullText.indexOf(match));
+                const endPos = document.positionAt(fullText.indexOf(match) + match.length);
+                const range = new vscode.Range(startPos, endPos);
+                editor.selection = new vscode.Selection(startPos, startPos); // Seleciona a função
+                vscode.commands.executeCommand('editor.unfold'); // Executa o comando de colapso (minimize)
+            });
+            vscode.window.showInformationMessage('Todas as Arrow Functions foram colapsadas.');
+        }
+    }
+};
+exports.expand = expand;
+
+
+/***/ })
+/******/ 	]);
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+var exports = __webpack_exports__;
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.activate = void 0;
+const vscode = __webpack_require__(1);
+const collapse_1 = __webpack_require__(2);
+const expand_1 = __webpack_require__(3);
+function activate(context) {
+    const expandButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
+    expandButton.text = 'Fx$(chevron-down)';
+    expandButton.command = 'minifyFunction.expand';
+    expandButton.tooltip = 'Expand all functions';
+    expandButton.show();
+    const minifyButton = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
+    minifyButton.text = 'Fx$(chevron-up)';
+    minifyButton.command = 'minifyFunction.minify';
+    minifyButton.tooltip = 'Collapse all functions';
+    minifyButton.show();
+    context.subscriptions.push(vscode.commands.registerCommand('minifyFunction.expand', expand_1.expand));
+    context.subscriptions.push(vscode.commands.registerCommand('minifyFunction.minify', collapse_1.collapse));
+}
+exports.activate = activate;
+
+})();
+
+module.exports = __webpack_exports__;
+/******/ })()
+;
+//# sourceMappingURL=extension.js.map
