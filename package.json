@@ -3,7 +3,7 @@
   "displayName": "Function Toogle",
   "description": "A simple extension to collaps/expand JS functions",
   "publisher": "RodrigoBianchini",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.82.0"
   },
